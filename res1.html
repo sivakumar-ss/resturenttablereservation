@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Restaurant Booking - Like RedBus</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+  
+<body><header>
+    <div class="logo"><marquee>OYT - Book Your Table Instantly</marquee></div>
+    <div class="menu-bar">
+      <select onchange="filterByRating(this.value)">
+        <option value="">Filter by Rating</option>
+        <option value="5">⭐⭐⭐⭐⭐</option>
+        <option value="4">⭐⭐⭐⭐</option>
+        <option value="3">⭐⭐⭐</option>
+      </select>
+      <select onchange="filterByCost(this.value)">
+        <option value="">Filter by Cost</option>
+        <option value="low">Low to High</option>
+        <option value="high">High to Low</option>
+      </select>
+      <select onchange="filterByLocation(this.value)">
+        <option value="">Nearby Locations</option>
+        <option value="Hyderabad">Hyderabad</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Bangalore">Bangalore</option>
+        <option value="kadapa">kadapa</option>
+        <option value="anathapur">Anathapur</option>
+        <option value="guntur">Guntur</option>
+      </select>
+    </div>
+  </header>
+  <header> <div class="mot">YOUR COMFORT OUR RESPONSIBILITY</div></header>
+  <div class="container">
+    <div class="search-panel">
+      <input type="text" placeholder="Search by restaurant name..." oninput="filterRestaurants(this.value)" />
+    </div>
+
+    <div class="restaurant-list" id="restaurantList">
+       <div class="restaurant" data-rating="4" data-cost="300" data-location="Hyderabad" onclick="selectRestaurant('Dharani restaurant')">
+        <img src="dharani.jpg" alt="Dharani restaurant">
+        <div class="restaurant-info">
+          <h3>Dharani restauran</h3>
+          Rating: ⭐⭐⭐⭐☆<br>
+           Cost for two: ₹300<br>
+          Location: Hyderabad<br>
+          Menu: Pasta, Pizza, Tiramisu
+        </div>
+      </div>
+      <div class="restaurant" data-rating="5" data-cost="500" data-location="Bangalore" onclick="selectRestaurant('Sushi restaurant')">
+        <img src="siva.jpeg" alt="Sushi restaurant">
+        <div class="restaurant-info">
+          <h3>Sushi restaurant</h3>
+          Rating: ⭐⭐⭐⭐⭐<br>
+          Cost for two: ₹500<br>
+          Location: Bangalore<br>
+          Menu: Sushi, Ramen, Tempura
+        </div>
+      </div>
+      <div class="restaurant" data-rating="3" data-cost="700" data-location="anathapur" onclick="selectRestaurant('kumar restaurant')">
+        <img src="re1.jpeg" alt="kumar restaurant">
+        <div class="restaurant-info">
+          <h3>kumar restaurant</h3>
+          Rating: ⭐⭐⭐☆☆<br>
+          Cost for two: ₹700<br>
+          Location: Anathapur <br>
+          Menu: Sushi, Ramen, Tempura
+        </div>
+      </div>
+<div class="restaurant" data-rating="4" data-cost="200" data-location="Hyderabadi" onclick="selectRestaurant('Thanveer Palace')">
+        <img src="re2.webp" alt="Thanveer Palace">
+        <div class="restaurant-info">
+          <h3>Thanveer restaurant</h3>
+          Rating: ⭐⭐⭐⭐☆<br>
+          Cost for two: ₹200<br>
+          Location: Hyderabad<br>
+          Menu: Sushi, Ramen, Tempura
+        </div>
+      </div>
+<div class="restaurant" data-rating="4" data-cost="1000" data-location="kadapa" onclick="selectRestaurant('varun restaurant')">
+        <img src="re3.jpg" alt="varun restaurant">
+        <div class="restaurant-info">
+          <h3>varun restaurant</h3>
+          Rating: ⭐⭐⭐⭐☆<br>
+          Cost for two: ₹1000<br>
+          Location: kadapa<br>
+          Menu: Sushi, Ramen, Tempura
+        </div>
+      </div>
+     <div class="restaurant" data-rating="3" data-cost="800" data-location=" varangal" onclick="selectRestaurant('Telengana Palace')">
+        <img src="re4.avif" alt="Telengana Palace">
+        <div class="restaurant-info">
+          <h3>Telengana restaurant</h3>
+          Rating: ⭐⭐⭐☆☆<br>
+          Cost for two: ₹800<br>
+          Location: varangal<br>
+          Menu: Sushi, Ramen, Tempura
+        </div>
+      </div>
+<div class="restaurant" data-rating="4" data-cost="300" data-location="Kerala" onclick="selectRestaurant('Kerala Palace')">
+        <img src="re5.avif" alt="Kerala Palace">
+        <div class="restaurant-info">
+          <h3>Kerala restaurant</h3>
+          Rating: ⭐⭐⭐⭐☆<br>
+          Cost for two: ₹300<br>
+          Location: Kerala<br>
+          Menu: Sushi, Ramen, Tempura
+        </div>
+      </div>
+<div class="restaurant" data-rating="4" data-cost="700" data-location="chennai" onclick="selectRestaurant('Tamil Palace')">
+        <img src="re7.jpeg" alt="Tamil Palace">
+        <div class="restaurant-info">
+          <h3>Tamil restaurant</h3>
+          Rating: ⭐⭐⭐⭐☆<br>
+          Cost for two: ₹700<br>
+          Location: Chennai<br>
+          Menu: Sushi, Ramen, Tempura
+        </div>
+      </div>
+<div class="restaurant" data-rating="5" data-cost="600" data-location="guntur" onclick="selectRestaurant('Telugu Palace')">
+        <img src="re6.jpg" alt="Telugu Palace">
+        <div class="restaurant-info">
+          <h3>Telugu restaurant</h3>
+          Rating: ⭐⭐⭐⭐⭐<br>
+          Cost for two: ₹600<br>
+          Location: guntur<br>
+          Menu: Sushi, Ramen, Tempura
+        </div>
+      </div>
+    </div>
+
+    <div class="reservation-form" id="reservationForm">
+      <h2 id="restaurantName">Reservation</h2>
+      <label for="resDate">Date</label>
+      <input type="date" id="resDate" />
+      <label for="resTime">Time</label>
+      <input type="time" id="resTime" />
+      <label for="resName">Your Name</label>
+      <input type="text" id="resName" />
+      <label for="resPeople">Number of People</label>
+      <input type="number" id="resPeople" />
+      <button onclick="saveReservation()">Reserve</button>
+
+      <h3>Modify Reservation</h3>
+      <label for="editDate">New Date</label>
+      <input type="date" id="editDate" />
+      <label for="editTime">New Time</label>
+      <input type="time" id="editTime" />
+      <button onclick="modifyReservation()">Modify</button>
+
+      <div class="contact">
+        <h3>Contact Information</h3>
+        <p>Email: FoodTable@restaurant.com</p>
+        <p>Phone: +91 6309802300</p>
+        <p>Address: 123 Food St, Taste City</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 OYT Inc. All rights reserved.
+  </footer>
+  <script src="script1.js"></script>
+</body>
+</html>
